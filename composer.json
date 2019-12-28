@@ -1,0 +1,58 @@
+{
+    "name": "bmatovu/laravel-package-boilerplate",
+    "description": "Laravel package boilerplate.",
+    "homepage": "https://github.com/mtvbrianking/laravel-package-boilerplate",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "package",
+        "starter",
+        "boilerplate"
+    ],
+    "authors": [
+        {
+            "name": "Brian Matovu",
+            "email": "mtvbrianking@gmail.com",
+            "homepage": "http://bmatovu.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.2"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bmatovu\\HelloWorld\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bmatovu\\HelloWorld\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "doc": "php sami.phar update .sami.dist",
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bmatovu\\HelloWorld\\HelloWorldServiceProvider"
+            ],
+            "aliases": {
+                "HelloWorld": "Bmatovu\\HelloWorld\\HelloWorldFacade"
+            }
+        }
+    }
+}

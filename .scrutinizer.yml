@@ -1,0 +1,28 @@
+# https://scrutinizer-ci.com/docs/configuration/build_reference
+
+checks:
+    php:
+        code_rating: true
+        duplication: true
+
+filter:
+    excluded_paths:
+        - "docs/"
+        - "tests/"
+
+build:
+    environment:
+        php:
+            version: '7.2'
+    requires:
+        - branch: master
+    nodes:
+        analysis:
+            tests:
+                override:
+                    - php-scrutinizer-run
+                    -
+                        command: 'vendor/bin/phpunit --coverage-clover=coverage.clover'
+                        coverage:
+                            file: 'coverage.clover'
+                            format: 'clover'
