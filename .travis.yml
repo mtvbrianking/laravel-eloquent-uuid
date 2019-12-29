@@ -29,6 +29,8 @@ jobs:
 
       name: "Documentation"
 
+      if: branch = master
+
       php: 7.2
 
       before_script:
