@@ -9,7 +9,7 @@ class Uuid
     /**
      * Generate UUID by version.
      *
-     * @param int version UUID Version
+     * @param int $version UUID Version
      *
      * @throws \Ramsey\Uuid\Exception\UnsatisfiedDependencyException
      *
