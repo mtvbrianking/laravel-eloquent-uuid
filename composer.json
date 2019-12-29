@@ -1,14 +1,14 @@
 {
-    "name": "bmatovu/laravel-package-boilerplate",
-    "description": "Laravel package boilerplate.",
-    "homepage": "https://github.com/mtvbrianking/laravel-package-boilerplate",
+    "name": "bmatovu/laravel-eloquent-uuid",
+    "description": "Laravel Eloquent UUID.",
+    "homepage": "https://github.com/mtvbrianking/laravel-eloquent-uuid",
     "type": "library",
     "license": "MIT",
     "keywords": [
         "laravel",
-        "package",
-        "starter",
-        "boilerplate"
+        "eloquent",
+        "model",
+        "uuid"
     ],
     "authors": [
         {
@@ -19,20 +19,24 @@
         }
     ],
     "require": {
-        "php": ">=7.2"
+        "php": ">=7.2",
+        "illuminate/database": "^6.0",
+        "illuminate/support": "^6.0",
+        "ramsey/uuid": "^3.7"
     },
     "require-dev": {
-        "orchestra/testbench": "^4.0",
-        "phpunit/phpunit": "^8.0"
+        "fzaninotto/faker": "^1.4",
+        "laravel/framework": "^6.9",
+        "orchestra/testbench": "^4.0"
     },
     "autoload": {
         "psr-4": {
-            "Bmatovu\\HelloWorld\\": "src/"
+            "Bmatovu\\Uuid\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Bmatovu\\HelloWorld\\Tests\\": "tests/"
+            "Bmatovu\\Uuid\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev",
@@ -48,10 +52,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Bmatovu\\HelloWorld\\HelloWorldServiceProvider"
+                "Bmatovu\\Uuid\\UuidServiceProvider"
             ],
             "aliases": {
-                "HelloWorld": "Bmatovu\\HelloWorld\\HelloWorldFacade"
+                "Uuid": "Bmatovu\\Uuid\\UuidFacade"
             }
         }
     }

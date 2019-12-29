@@ -1,13 +1,13 @@
 <?php
 
-namespace Bmatovu\HelloWorld;
+namespace Bmatovu\Uuid;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Bmatovu\HelloWorld\HelloWorld
+ * @see \Bmatovu\Uuid\Uuid
  */
-class HelloWorldFacade extends Facade
+class UuidFacade extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -16,6 +16,6 @@ class HelloWorldFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'hello-world';
+        return 'uuid';
     }
 }

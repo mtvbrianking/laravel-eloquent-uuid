@@ -1,37 +1,50 @@
 <?php
-namespace Bmatovu\HelloWorld\Tests;
+namespace Bmatovu\Uuid\Tests;
 
-use Bmatovu\HelloWorld\HelloWorldServiceProvider;
+use Bmatovu\Uuid\UuidServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
 {
     /**
-     * Add package service provider
+     * Add package service provider.
      *
      * @param \Illuminate\Foundation\Application $app
+     *
      * @return array
      */
     protected function getPackageProviders($app)
     {
         return [
-            HelloWorldServiceProvider::class
+            UuidServiceProvider::class,
         ];
     }
 
     /**
-     * Define environment setup.
+     * Get package aliases.
      *
-     * @param \Illuminate\Foundation\Application $app
+     * @param  \Illuminate\Foundation\Application  $app
+     *
+     * @return array
+     */
+    protected function getPackageAliases($app)
+    {
+        return [
+            'Uuid' => 'Bmatovu\Uuid\UuidFacade',
+        ];
+    }
+
+    /**
+     * Setup the test environment.
+     *
      * @return void
      */
-    protected function getEnvironmentSetUp($app)
+    protected function setUp(): void
     {
-        $app['config']->set('database.default', 'testing');
-        $app['config']->set('database.connections.testing', [
-            'driver' => 'sqlite',
-            'database' => ':memory:',
-            'prefix' => '',
-        ]);
+        parent::setUp();
+
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
+
+        $this->withFactories(__DIR__.'/database/factories');
     }
 }

@@ -18,7 +18,7 @@ $versions = GitVersionCollection::create($dir)
     ->add('master', 'master branch');
 
 $repo = new GitHubRemoteRepository(
-    'mtvbrianking/laravel-api-filters',
+    'mtvbrianking/laravel-eloquent-uuid',
     dirname($dir),
     'https://github.com/'
 );
@@ -26,7 +26,7 @@ $repo = new GitHubRemoteRepository(
 $options = [
     'theme' => 'default',
     'versions' => $versions,
-    'title' => 'Laravel API Filters',
+    'title' => 'Laravel Eloquent UUID',
     'build_dir' => __DIR__ . '/docs',
     'cache_dir' => __DIR__ . '/docs/cache',
     'remote_repository' => $repo,
