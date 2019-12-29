@@ -1,4 +1,4 @@
-## Laravel Eloquent UUID.
+# Laravel Eloquent UUID.
 
 [![Build Status](https://travis-ci.org/mtvbrianking/laravel-eloquent-uuid.svg?branch=master)](https://travis-ci.org/mtvbrianking/laravel-eloquent-uuid)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mtvbrianking/laravel-eloquent-uuid/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mtvbrianking/laravel-eloquent-uuid/?branch=master)
@@ -6,7 +6,7 @@
 [![StyleCI](https://github.styleci.io/repos/230607368/shield?branch=master)](https://github.styleci.io/repos/230607368)
 [![Documentation](https://img.shields.io/badge/Documentation-Blue)](https://mtvbrianking.github.io/laravel-eloquent-uuid)
 
-### Installation
+## Installation
 
 Install via Composer package manager:
 
@@ -14,7 +14,7 @@ Install via Composer package manager:
 composer require bmatovu/laravel-eloquent-uuid
 ```
 
-### Usage
+## Usage
 
 **Migration**:
 
@@ -65,7 +65,7 @@ class Client extends Model
 }
 ```
 
-### Testing
+## Testing
 
 **Factories fail after faking events**: ([Issue #19952](https://github.com/laravel/framework/issues/19952))
 
