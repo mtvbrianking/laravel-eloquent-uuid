@@ -1,4 +1,5 @@
 # https://scrutinizer-ci.com/docs/configuration/build_reference
+# https://scrutinizer-ci.com/docs/tools/external-code-coverage/
 
 checks:
     php:
@@ -10,19 +11,5 @@ filter:
         - "docs/"
         - "tests/"
 
-build:
-    environment:
-        php:
-            version: '7.2'
-    requires:
-        - branch: master
-    nodes:
-        analysis:
-            tests:
-                override:
-                    - php-scrutinizer-run
-                    -
-                        command: 'vendor/bin/phpunit --coverage-clover=coverage.clover'
-                        coverage:
-                            file: 'coverage.clover'
-                            format: 'clover'
+tools:
+    external_code_coverage: true
