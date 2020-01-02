@@ -24,13 +24,4 @@ class Dummy extends Model
     protected $fillable = [
         'name',
     ];
-
-    /**
-     * The event map for the model.
-     *
-     * @var array
-     */
-    protected $events = [
-        'creating' => DummyCreatingEvent::class,
-    ];
 }

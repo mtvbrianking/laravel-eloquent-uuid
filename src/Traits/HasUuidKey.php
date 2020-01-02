@@ -39,7 +39,7 @@ trait HasUuidKey
         static::creating(function (Model $model): void {
             if (! $model->getKey()) {
                 $version = config('uuid.version');
-                $model->{$model->getKeyName()} = Uuid::generate($version);
+                $model->{$model->getKeyName()} = Uuid::generate($version)->toString();
             }
         });
     }
