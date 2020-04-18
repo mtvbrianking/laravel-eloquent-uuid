@@ -32,7 +32,7 @@ trait HasUuidKey
      *
      * @return void
      */
-    protected static function boot():void
+    protected static function boot(): void
     {
         parent::boot();
 
