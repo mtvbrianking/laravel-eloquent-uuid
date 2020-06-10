@@ -25,10 +25,6 @@ class UuidServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('uuid', function () {
-            return new Uuid();
-        });
-
         $this->mergeConfigFrom(__DIR__.'/../config/uuid.php', 'uuid');
     }
 }

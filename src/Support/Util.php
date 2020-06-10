@@ -1,11 +1,12 @@
 <?php
 
-namespace Bmatovu\Uuid;
+namespace Bmatovu\Uuid\Support;
 
-use Ramsey\Uuid\Uuid as RamseyUuid;
+use Ramsey\Uuid\Exception\InvalidUuidStringException;
+use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
-class Uuid
+class Util
 {
     /**
      * Generate UUID by version.
@@ -18,24 +19,24 @@ class Uuid
      *
      * @return \Ramsey\Uuid\UuidInterface UUID
      */
-    public static function generate(int $version = 4, $ns = null, string $name = null): UuidInterface
+    public static function generateUuid(int $version = 4, $ns = null, string $name = null): UuidInterface
     {
-        $ns = $ns ? $ns : RamseyUuid::NAMESPACE_DNS;
+        $ns = $ns ? $ns : Uuid::NAMESPACE_DNS;
 
         $name = $name ? $name : php_uname('n');
 
         switch ($version) {
             case 1:
-                $uuid = RamseyUuid::uuid1();
+                $uuid = Uuid::uuid1();
             break;
             case 3:
-                $uuid = RamseyUuid::uuid3($ns, $name);
+                $uuid = Uuid::uuid3($ns, $name);
             break;
             case 5:
-                $uuid = RamseyUuid::uuid5($ns, $name);
+                $uuid = Uuid::uuid5($ns, $name);
             break;
             default:
-                $uuid = RamseyUuid::uuid4();
+                $uuid = Uuid::uuid4();
             break;
         }
 
@@ -45,21 +46,19 @@ class Uuid
     /**
      * Validate UUID plus version.
      *
-     * @param  string   $uuid
+     * @param  string   $str
      * @param  int|null $version UUID Version
      *
      * @return bool True for valid.
      */
-    public static function validate(string $uuid, int $version = null)
+    public static function validateUuid(string $str, int $version = null)
     {
         if ($version === null) {
-            return RamseyUuid::isValid($value);
+            return Uuid::isValid($str);
         }
 
         try {
-            $uuid = RamseyUuid::fromString($value);
-
-            return $uuid->getVersion() === $version;
+            return Uuid::fromString($str)->getVersion() === $version;
         } catch (InvalidUuidStringException $e) {
             return false;
         }
