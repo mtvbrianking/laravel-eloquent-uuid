@@ -2,7 +2,11 @@
 
 namespace Bmatovu\Uuid\Support;
 
-class Uuid
+use Ramsey\Uuid\Exception\InvalidUuidStringException;
+use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
+
+class Util
 {
     /**
      * Generate UUID by version.
@@ -15,7 +19,7 @@ class Uuid
      *
      * @return \Ramsey\Uuid\UuidInterface UUID
      */
-    public static function generate(int $version = 4, $ns = null, string $name = null): UuidInterface
+    public static function generateUuid(int $version = 4, $ns = null, string $name = null): UuidInterface
     {
         $ns = $ns ? $ns : Uuid::NAMESPACE_DNS;
 
@@ -37,5 +41,26 @@ class Uuid
         }
 
         return $uuid;
+    }
+
+    /**
+     * Validate UUID plus version.
+     *
+     * @param  string   $str
+     * @param  int|null $version UUID Version
+     *
+     * @return bool True for valid.
+     */
+    public static function validateUuid(string $str, int $version = null)
+    {
+        if ($version === null) {
+            return Uuid::isValid($str);
+        }
+
+        try {
+            return Uuid::fromString($str)->getVersion() === $version;
+        } catch (InvalidUuidStringException $e) {
+            return false;
+        }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Bmatovu\Uuid\Traits;
 
-use Bmatovu\Support\Uuid;
+use Bmatovu\Uuid\Support\Util;
 use Illuminate\Database\Eloquent\Model;
 
 trait HasUuidKey
@@ -41,7 +41,8 @@ trait HasUuidKey
                 $version = config('uuid.version');
                 $namespace = config('uuid.namespace');
                 $name = config('uuid.name');
-                $model->{$model->getKeyName()} = Uuid::generate($version, $namespace, $name)->toString();
+
+                $model->{$model->getKeyName()} = Util::generateUuid($version, $namespace, $name)->toString();
             }
         });
     }
