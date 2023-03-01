@@ -1,3 +1,11 @@
+**THIS PACKAGE IS NOT MAINTAINED ANYMORE...**
+
+LARAVEL HAS INTRODUCTED [UUID & ULID](https://laravel.com/docs/9.x/eloquent#uuid-and-ulid-keys) SUPPORT IN THE CORE STARTING WITH LARAVEL V9
+
+https://laravel.com/docs/9.x/eloquent#uuid-and-ulid-keys
+
+<hr/>
+
 # Laravel Eloquent UUID.
 
 [![Build Status](https://travis-ci.org/mtvbrianking/laravel-eloquent-uuid.svg?branch=master)](https://travis-ci.org/mtvbrianking/laravel-eloquent-uuid)
